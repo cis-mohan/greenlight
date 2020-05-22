@@ -19,6 +19,7 @@
 require 'bbb_api'
 
 class User < ApplicationRecord
+  mount_uploader :logo, UserLogoUploader
   include Deleteable
 
   after_create :setup_user

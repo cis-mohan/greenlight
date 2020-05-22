@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_144841) do
+ActiveRecord::Schema.define(version: 2020_05_21_153426) do
 
   create_table "features", force: :cascade do |t|
     t.integer "setting_id"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_144841) do
     t.string "attendee_pw"
     t.string "access_code"
     t.boolean "deleted", default: false, null: false
+    t.boolean "only_video"
     t.index ["bbb_id"], name: "index_rooms_on_bbb_id"
     t.index ["deleted"], name: "index_rooms_on_deleted"
     t.index ["last_session"], name: "index_rooms_on_last_session"
@@ -120,6 +121,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_144841) do
     t.string "activation_digest"
     t.datetime "activated_at"
     t.boolean "deleted", default: false, null: false
+    t.string "logo"
     t.index ["created_at"], name: "index_users_on_created_at"
     t.index ["deleted"], name: "index_users_on_deleted"
     t.index ["email"], name: "index_users_on_email"

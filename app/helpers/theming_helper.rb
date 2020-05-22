@@ -19,11 +19,19 @@
 module ThemingHelper
   # Returns the logo based on user's provider
   def logo_image
-    @settings.get_value("Branding Image") || Rails.configuration.branding_image_default
+    guest_and_logged_user_on_show_page || @settings.get_value("Branding Image") || Rails.configuration.branding_image_default
   end
 
   # Returns the primary color based on user's provider
   def user_color
     @settings.get_value("Primary Color") || Rails.configuration.primary_color_default
   end
+
+	def guest_and_logged_user_on_show_page
+		if current_user.present?
+		  current_user.logo_url
+		else
+			@room.owner.logo_url if @room.present? && @room.owner.present?
+		end
+	end
 end

@@ -354,6 +354,8 @@ da:
       name_placeholder: Indtast et rum navn...
       not_blank: Rum navn skal udfyldes.
       title: Opret Nyt Rum
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Er du sikker på du vil slette denne konto?"
       delete: "Jeg er sikker, slet denne konto."

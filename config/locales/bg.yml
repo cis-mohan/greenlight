@@ -339,6 +339,8 @@ bg:
       name_placeholder: Въведете име на стаята...
       not_blank: Името на стаята не може да е празно.
       title: Създай нова стая
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Сигурни ли сте че искате да изтриете този профил?"
       delete: "Съгурен съм, изтриите този профил"

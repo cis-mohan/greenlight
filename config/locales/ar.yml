@@ -337,6 +337,8 @@ ar:
       name_placeholder: أدخل اسم الغرفة ...
       not_blank: لا يمكن ترك اسم الغرفة فارغًا.
       title: إنشاء غرفة جديدة
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: هل تريد بالتأكيد حذف هذا الحساب؟
       delete: أنا متأكد، قم بحذف هذا الحساب.

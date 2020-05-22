@@ -353,6 +353,8 @@ en:
       create: Create Room
       free_delete: You will be free to delete this room at any time.
       name_placeholder: Enter a room name...
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
       not_blank: Room name cannot be blank.
       title: Create New Room
     delete_account:

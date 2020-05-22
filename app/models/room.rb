@@ -24,6 +24,7 @@ class Room < ApplicationRecord
   before_create :setup
 
   validates :name, presence: true
+  validates :uid, uniqueness: true
 
   belongs_to :owner, class_name: 'User', foreign_key: :user_id
   has_many :shared_access
@@ -84,7 +85,7 @@ class Room < ApplicationRecord
 
   # Generates a uid for the room and BigBlueButton.
   def setup
-    self.uid = random_room_uid
+    self.uid = random_room_uid if self.uid.nil?
     self.bbb_id = unique_bbb_id
     self.moderator_pw = RandomPassword.generate(length: 12)
     self.attendee_pw = RandomPassword.generate(length: 12)

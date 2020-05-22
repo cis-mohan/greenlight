@@ -354,6 +354,8 @@ cs:
       name_placeholder: Zadejte název místnosti...
       not_blank: Název místnosti nemůže být prázdný.
       title: Vytvořit novou místnost
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Určitě chcete smazat tento účet?"
       delete: "Jsem si jistý, účet chci smazat."

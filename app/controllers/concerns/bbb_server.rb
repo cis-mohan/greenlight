@@ -55,6 +55,7 @@ module BbbServer
     join_opts[:userID] = uid if uid
     join_opts[:join_via_html5] = true
     join_opts[:guest] = true if options[:require_moderator_approval] && !options[:user_is_moderator]
+    join_opts["userdata-autoSwapLayout"] = true if room.only_video?
 
     bbb_server.join_meeting_url(room.bbb_id, name, password, join_opts)
   end
@@ -68,6 +69,7 @@ module BbbServer
       attendeePW: room.attendee_pw,
       moderatorOnlyMessage: options[:moderator_message],
       muteOnStart: options[:mute_on_start] || false,
+      maxParticipants: options[:max_participants],
       "meta_#{META_LISTED}": options[:recording_default_visibility] || false,
       "meta_bbb-origin-version": Greenlight::Application::VERSION,
       "meta_bbb-origin": "Greenlight",
@@ -75,8 +77,9 @@ module BbbServer
     }
 
     create_options[:guestPolicy] = "ASK_MODERATOR" if options[:require_moderator_approval]
+    create_options[:autoSwapLayout] = true if room.only_video?
 
-    # Send the create request.
+    #Send the create request.
     begin
       meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
       # Update session info.

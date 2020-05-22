@@ -43,6 +43,26 @@
               </span>
             </div>
 
+            <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
+              <div class="custom-link-input">
+              <span class="custom-switch-description">Custom link</span>
+                <%= f.text_field :uid, id: "create-room-uid", class: "form-control custom-link-input-text", value: "", placeholder: t("modal.create_room.custom_link_placeholder"), autocomplete: :off  %>
+              </div>
+            </label>
+
+            <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
+              <div class="custom-link-input">
+              <span class="custom-switch-description">Max Number of Participants</span>
+                <%= f.text_field :max_participants, id: "create-room-max_participants", class: "form-control max-participant-text", value: "", placeholder: 2, autocomplete: :off  %>
+              </div>
+            </label>
+
+            <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block ">
+              <span class="custom-switch-description">Only Video Room (without presentation)</span>
+              <%= f.check_box :only_video, class: "custom-switch-input", data: { default: true } %>
+              <span class="custom-switch-indicator float-right cursor-pointer"></span>
+             </label>
+
             <% mute = room_configuration("Room Configuration Mute On Join") %>
             <% if mute != "disabled" %>
               <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block <%= "enabled-setting" if mute == "enabled" %>">

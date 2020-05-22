@@ -117,6 +117,10 @@ module Joiner
     end
   end
 
+  def room_setting_with_participants
+    @room_settings["maxParticipants"].present? ? @room_settings["maxParticipants"] : 3
+  end
+
   private
 
   def fetch_guest_id

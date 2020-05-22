@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
     return redirect_to current_user.main_room, flash: { alert: I18n.t("room.room_limit") } if room_limit_exceeded
 
     # Create room
-    @room = Room.new(name: room_params[:name], access_code: room_params[:access_code])
+    @room = Room.new(name: room_params[:name], access_code: room_params[:access_code], uid: room_params[:uid], only_video: room_params[:only_video])
     @room.owner = current_user
     @room.room_settings = create_room_settings_string(room_params)
 
@@ -164,6 +164,7 @@ class RoomsController < ApplicationController
     @room_settings = JSON.parse(@room[:room_settings])
     opts[:mute_on_start] = room_setting_with_config("muteOnStart")
     opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
+    opts[:max_participants] = room_setting_with_participants
 
     begin
       redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -190,7 +191,8 @@ class RoomsController < ApplicationController
       @room.update_attributes(
         name: options[:name],
         room_settings: room_settings_string,
-        access_code: options[:access_code]
+        access_code: options[:access_code],
+        only_video: options[:only_video],
       )
 
       flash[:success] = I18n.t("room.update_settings_success")
@@ -255,7 +257,7 @@ class RoomsController < ApplicationController
   def room_settings
     # Respond with JSON object of the room_settings
     respond_to do |format|
-      format.json { render body: @room.room_settings.to_json }
+      format.json { render body: {only_video: @room.only_video, uid: @room.uid, settings: @room.room_settings}.to_json }
     end
   end
 
@@ -284,6 +286,7 @@ class RoomsController < ApplicationController
       "requireModeratorApproval": options[:require_moderator_approval] == "1",
       "anyoneCanStart": options[:anyone_can_start] == "1",
       "joinModerator": options[:all_join_moderator] == "1",
+      "maxParticipants": options[:max_participants].present? ? "3" : options[:max_participants]
     }
 
     room_settings.to_json
@@ -291,7 +294,7 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name, :auto_join, :mute_on_join, :access_code,
-      :require_moderator_approval, :anyone_can_start, :all_join_moderator)
+      :require_moderator_approval, :anyone_can_start, :all_join_moderator, :uid, :max_participants, :only_video, :bbb_id)
   end
 
   # Find the room from the uid.
