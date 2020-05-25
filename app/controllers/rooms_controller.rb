@@ -193,6 +193,7 @@ class RoomsController < ApplicationController
         room_settings: room_settings_string,
         access_code: options[:access_code],
         only_video: options[:only_video],
+        uid: options[:uid]
       )
 
       flash[:success] = I18n.t("room.update_settings_success")

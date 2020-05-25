@@ -212,7 +212,7 @@ function updateCurrentSettings(settings_path){
     $("#room_only_video").prop("checked", room_settings["only_video"])
     $("#create-room-max_participants").val(settings.maxParticipants)
     $("#create-room-uid").val(room_settings["uid"])
-    $("#create-room-uid").prop('readonly', true);
+    //$("#create-room-uid").prop('readonly', true);
   })
 }
 
