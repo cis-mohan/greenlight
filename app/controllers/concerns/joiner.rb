@@ -124,7 +124,7 @@ module Joiner
   end
 
   def get_presentation
-    current_user.present? && current_user.presentation.present? ? current_user.presentation.file.file : ""
+    current_user.present? && current_user.presentation.present? ? "" : ""
   end
 
 
