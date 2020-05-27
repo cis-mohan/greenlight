@@ -48,7 +48,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
         access_type: 'online',
         name: 'google',
         redirect_uri: redirect,
-        setup: SETUP_PROC
+        setup: SETUP_PROC,
+        skip_jwt: true
     end
     if Rails.configuration.omniauth_office365
       Rails.application.config.providers << :office365

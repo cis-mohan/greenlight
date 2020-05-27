@@ -339,6 +339,11 @@ hy:
       name_placeholder: Մուտքագրեք սենյակի անվանումը ․ ․ ․
       not_blank: Սենյակի անվանումը չի կարող լինել դատարկ
       title: Նոր սենյակի ստեղծում
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: Հաստատեք տվյալ օգտահաշիվը հեռացնելու պատրաստակամությունը
       delete: "Համոզված եմ, հեռացրեք տվյալ օգտահաշիվը։"

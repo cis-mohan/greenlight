@@ -338,6 +338,11 @@ tr_TR:
       name_placeholder: Bir oda adı girin ...
       not_blank: Oda adı boş bırakılamaz.
       title: Yeni Oda Oluştur
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Bu hesabı silmek istediğinize emin misiniz?"
       delete: Eminim bu hesabı sil.

@@ -302,6 +302,11 @@ hi_IN:
       name_placeholder: एक कमरे का नाम दर्ज करें ...
       not_blank: कमरे का नाम रिक्त नहीं हो सकता।
       title: नया कक्ष बनाएँ
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm:
       delete:

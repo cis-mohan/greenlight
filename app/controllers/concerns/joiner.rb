@@ -57,6 +57,8 @@ module Joiner
 
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
+      opts[:max_participants] = room_setting_with_participants
+      opts[:presentation] = room_setting_with_participants
 
       if current_user
         redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -118,8 +120,13 @@ module Joiner
   end
 
   def room_setting_with_participants
-    @room_settings["maxParticipants"].present? ? @room_settings["maxParticipants"] : 3
+    @room_settings["maxParticipants"].present? ? @room_settings["maxParticipants"].to_i : 20
   end
+
+  def get_presentation
+    current_user.present? && current_user.presentation.present? ? current_user.presentation.file.file : ""
+  end
+
 
   private
 

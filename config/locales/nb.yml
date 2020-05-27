@@ -306,6 +306,11 @@ nb:
       name_placeholder: Angi romnavn
       not_blank: Romnavnet kan ikke være tomt.
       title: Opprett nytt rom
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Er du sikker på at du vil slette denne kontoen?"
       delete: "Jeg er sikker, slett denne kontoen."

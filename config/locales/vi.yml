@@ -354,6 +354,11 @@ vi:
       name_placeholder: Nhập tên phòng...
       not_blank: Tên phòng không được để trống.
       title: Tạo Phòng Mới
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Bạn có chắc chắn muốn xóa tài khoản này?"
       delete: "Tôi chắc chắn, hãy xóa tài khoản này."

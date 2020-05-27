@@ -354,6 +354,11 @@ ja_JP:
       name_placeholder: 会議室名を入力してください...
       not_blank: 会議室名を空白にすることはできません。
       title: 新しい会議室を作成
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: このアカウントを削除してもよろしいですか？
       delete: このアカウントを削除します。

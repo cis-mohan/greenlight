@@ -137,6 +137,29 @@ $(document).on('turbolinks:load', function(){
   }
 });
 
+function checkform(){
+  console.log($("#create-room-name").val())
+  $(".invalid-feedback").hide();
+  if($("#create-room-name").val() == "")
+  {
+    // something is wrong
+    $("#create-room-name").next().show();
+    $("input.room_save_btn").attr("disabled", false);
+    return false;
+  }
+  else if($("#create-room-uid").val() == "")
+  {
+    // something else is wrong
+    $("#create-room-uid").next().show();
+    $("input.room_save_btn").attr("disabled", false);
+    return false;
+  }
+  // If the script gets this far through all of your fields
+  // without problems, it's ok and you can submit the form
+
+  return true;
+}
+
 function showCreateRoom(target) {
   var modal = $(target)
   $("#create-room-name").val("")

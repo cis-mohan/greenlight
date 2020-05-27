@@ -306,6 +306,11 @@ es:
       name_placeholder: Introduce un nombre para la sala
       not_blank: El nombre de la sala no puede estar vacío
       title: Crear una sala nueva
+      custom_link: Personalizado
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: video chat sin Presentación 
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "¿Estas seguro de querer eliminar esta cuenta de usuario?"
       delete: Estoy seguro de eliminar ésta cuenta

@@ -337,6 +337,11 @@ th:
       name_placeholder: กรอกชื่อห้องประชุมของคุณ...
       not_blank: ชื่อห้องต้องไม่ว่างเปล่า
       title: สร้างห้องใหม่
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "คุณแน่ใจหรือว่าต้องการลบบัญชีนี้?"
       delete: ฉันแน่ใจว่าจะลบบัญชีนี้

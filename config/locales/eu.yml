@@ -354,6 +354,11 @@ eu:
       name_placeholder: Sartu gela izena...
       not_blank: Gela izena ezin da hutsik egon.
       title: Sortu Gela Berria
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Ziur zaude kontu hau ezabatu nahi duzula?"
       delete: "Ziur nago, ezabatu kontu hau."

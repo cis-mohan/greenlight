@@ -354,6 +354,11 @@ de_DE:
       name_placeholder: Geben Sie einen Raumnamen ein...
       not_blank: Es muss ein Raumname angegeben werden.
       title: Neuen Raum erstellen
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Sind Sie sicher, dass Sie dieses Konto löschen wollen?"
       delete: "Ich bin sicher, das Konto soll gelöscht werden."

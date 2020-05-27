@@ -338,6 +338,11 @@ zh_TW:
       name_placeholder: 這裡請輸入會議室名稱...
       not_blank: 會議室名稱不能為空
       title: 創建新的會議室
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: 確實要刪除此帳戶嗎？
       delete: 我確定要刪除這個帳戶。

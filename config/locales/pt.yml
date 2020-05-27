@@ -302,6 +302,11 @@ pt:
       name_placeholder: Insira o nome da sala...
       not_blank: O nome da sala não pode ficar vazio.
       title: Criar Nova Sala
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm:
       delete:

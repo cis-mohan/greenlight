@@ -339,6 +339,11 @@ zh_CN:
       name_placeholder: 这里请输入会议室名称...
       not_blank: 会议室名称不能为空
       title: 创建新的会议室
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: 确实要删除此帐户吗？
       delete: 我确定要删除这个帐户。

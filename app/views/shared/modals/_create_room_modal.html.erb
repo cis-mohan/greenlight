@@ -23,7 +23,7 @@
             <h3 class="update-only"><%= t("modal.room_settings.title") %></h3>
           </div>
 
-          <%= form_for(:room, url: rooms_path) do |f| %>
+          <%= form_for(:room, url: rooms_path, :html =>{id: "room_form", onSubmit: "return checkform()"}) do |f| %>
             <div class="input-icon mb-2">
               <span class="input-icon-addon">
                 <i class="fas fa-chalkboard-teacher"></i>
@@ -45,20 +45,23 @@
 
             <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
               <div class="custom-link-input">
-              <span class="custom-switch-description">Custom link</span>
-                <%= f.text_field :uid, id: "create-room-uid", class: "form-control custom-link-input-text", value: "", placeholder: t("modal.create_room.custom_link_placeholder"), autocomplete: :off  %>
+              <span class="custom-switch-description"><%=  t("modal.create_room.custom_link") %></span>
+                <div class="custom-link-input-text">
+                  <%= f.text_field :uid, id: "create-room-uid", class: "form-control ", value: "", placeholder: t("modal.create_room.custom_link_placeholder"), autocomplete: :off  %>
+                  <div class="invalid-feedback text-left">Custom link Can't be blank</div>
+                </div>
               </div>
             </label>
 
             <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
               <div class="custom-link-input">
-              <span class="custom-switch-description">Max Number of Participants</span>
-                <%= f.text_field :max_participants, id: "create-room-max_participants", class: "form-control max-participant-text", value: "", placeholder: 2, autocomplete: :off  %>
+              <span class="custom-switch-description"><%=  t("modal.create_room.max_number_of_participation") %></span>
+                <%= f.text_field :max_participants, id: "create-room-max_participants", class: "form-control max-participant-text", value: "", placeholder: 20, autocomplete: :off  %>
               </div>
             </label>
 
             <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block ">
-              <span class="custom-switch-description">Only Video Room (without presentation)</span>
+              <span class="custom-switch-description"><%=  t("modal.create_room.video_chat_without_presentation") %> </span>
               <%= f.check_box :only_video, class: "custom-switch-input", data: { default: true } %>
               <span class="custom-switch-indicator float-right cursor-pointer"></span>
              </label>
@@ -105,8 +108,8 @@
               <span class="custom-switch-indicator float-right cursor-pointer"></span>
             </label>
           <div class="mt-4">
-            <%= f.submit t("modal.create_room.create"), class: "create-only btn btn-primary btn-block" %>
-            <%= f.submit t("modal.room_settings.update"), class: "update-only btn btn-primary btn-block" %>
+            <%= f.submit t("modal.create_room.create"), class: "create-only btn btn-primary btn-block room_save_btn" %>
+            <%= f.submit t("modal.room_settings.update"), class: "update-only btn btn-primary btn-block room_save_btn" %>
           </div>
           <% end %>
         </div>

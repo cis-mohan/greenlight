@@ -62,6 +62,7 @@ module BbbServer
 
   # Creates a meeting on the BigBlueButton server.
   def start_session(room, options = {})
+    max_participants = options[:max_participants].present? ? options[:max_participants] : "20"
     create_options = {
       record: options[:meeting_recorded].to_s,
       logoutURL: options[:meeting_logout_url] || '',
@@ -69,7 +70,7 @@ module BbbServer
       attendeePW: room.attendee_pw,
       moderatorOnlyMessage: options[:moderator_message],
       muteOnStart: options[:mute_on_start] || false,
-      maxParticipants: options[:max_participants],
+      maxParticipants: max_participants,
       "meta_#{META_LISTED}": options[:recording_default_visibility] || false,
       "meta_bbb-origin-version": Greenlight::Application::VERSION,
       "meta_bbb-origin": "Greenlight",
@@ -79,9 +80,19 @@ module BbbServer
     create_options[:guestPolicy] = "ASK_MODERATOR" if options[:require_moderator_approval]
     create_options[:autoSwapLayout] = true if room.only_video?
 
+    if options[:presentation].present?
+      module_options = BigBlueButton::BigBlueButtonModules.new
+      module_options.add_presentation(:url, options[:presentation])
+    end
+
+
     #Send the create request.
     begin
-      meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
+      if module_options.present?
+        meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options, module_options)
+      else
+        meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
+      end
       # Update session info.
       unless meeting[:messageKey] == 'duplicateWarning'
        room.update_attributes(sessions: room.sessions + 1,

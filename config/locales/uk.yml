@@ -354,6 +354,11 @@ uk:
       name_placeholder: Зазначте назву кімнати...
       not_blank: Назва кімнати не може бути порожньою.
       title: Створення нової кімнати
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Дійсно вилучити цей обліковий запис?"
       delete: "Я впевнений, вилучіть цей обліковий запис."

@@ -165,6 +165,7 @@ class RoomsController < ApplicationController
     opts[:mute_on_start] = room_setting_with_config("muteOnStart")
     opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
     opts[:max_participants] = room_setting_with_participants
+    opts[:presentation] = get_presentation
 
     begin
       redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -201,8 +202,7 @@ class RoomsController < ApplicationController
       logger.error "Support: Error in updating room settings: #{e}"
       flash[:alert] = I18n.t("room.update_settings_error")
     end
-
-    redirect_back fallback_location: room_path(@room)
+    redirect_to room_path(@room)
   end
 
   # POST /:room_uid/update_shared_access
@@ -282,12 +282,13 @@ class RoomsController < ApplicationController
   private
 
   def create_room_settings_string(options)
+    max_participants = options[:max_participants].present? && options[:max_participants].to_i > 20 ? options[:max_participants] : "20"
     room_settings = {
       "muteOnStart": options[:mute_on_join] == "1",
       "requireModeratorApproval": options[:require_moderator_approval] == "1",
       "anyoneCanStart": options[:anyone_can_start] == "1",
       "joinModerator": options[:all_join_moderator] == "1",
-      "maxParticipants": options[:max_participants].present? ? "3" : options[:max_participants]
+      "maxParticipants": max_participants
     }
 
     room_settings.to_json

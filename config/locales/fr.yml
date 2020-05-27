@@ -339,6 +339,11 @@ fr:
       name_placeholder: Entrez un nom de salle...
       not_blank: Le nom de salle ne peut être vide.
       title: Créer Nouvelle Salle
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Voulez-vous vraiment supprimer ce compte ?"
       delete: "Je confirme, supprimez ce compte."

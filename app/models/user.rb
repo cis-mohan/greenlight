@@ -20,6 +20,7 @@ require 'bbb_api'
 
 class User < ApplicationRecord
   mount_uploader :logo, UserLogoUploader
+  mount_uploader :presentation, PresentationUploader
   include Deleteable
 
   after_create :setup_user
@@ -46,6 +47,8 @@ class User < ApplicationRecord
   # Bypass validation if omniauth
   validates :accepted_terms, acceptance: true,
                              unless: -> { !greenlight_account? || !Rails.configuration.terms }
+
+  validates_integrity_of :presentation
 
   # We don't want to require password validations on all accounts.
   has_secure_password(validations: false)

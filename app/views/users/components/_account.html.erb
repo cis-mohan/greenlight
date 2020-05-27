@@ -74,6 +74,16 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <%= f.label 'logo', class: "form-label" %>
+    <%= f.file_field :logo, class: "form-control #{form_is_invalid?(@user, :logo)}", placeholder: t("logo") %>
+    <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:logo).first %></div>
+  </div>
+  <div class="row">
+    <%= f.label 'presentation', class: "form-label" %>
+    <%= f.file_field :presentation, class: "form-control #{form_is_invalid?(@user, :presentation)}", placeholder: "Enter presentation" %>
+    <div class="invalid-feedback d-block"><%= @user.errors.full_messages_for(:presentation).first %></div>
+  </div>
   <div class="card-footer">
     <%= f.submit t("update"), class: "btn btn-primary float-right ml-4" %>
 

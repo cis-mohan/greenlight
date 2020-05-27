@@ -306,6 +306,11 @@ sk_SK:
       name_placeholder: Zadajte názov miestnosti...
       not_blank: Názov miestnosti nemôže byť prázdny.
       title: Vytvoriť novú miestnosť
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Určite chcete zmazať tento účet?"
       delete: "Som si istý, účet chcem zmazať."

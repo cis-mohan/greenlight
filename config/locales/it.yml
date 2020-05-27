@@ -354,6 +354,11 @@ it:
       name_placeholder: Inserisci il nome della stanza...
       not_blank: Il nome della stanza non può essere vuoto
       title: Crea una nuova stanza
+      custom_link: Custom Link
+      max_number_of_participation: Max Number of Participants
+      video_chat_without_presentation: Only Video Room (without presentation)
+      custom_link_placeholder: Enter custom link
+      max_participant_placeholder: Enter max_participant
     delete_account:
       confirm: "Sicuro di voler eliminare questo account?"
       delete: Sono sicuro. Elimina questo account.
