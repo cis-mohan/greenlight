@@ -355,7 +355,7 @@ en:
       name_placeholder: Enter a room name...
       custom_link: Custom Link
       max_number_of_participation: Max Number of Participants
-      video_chat_without_presentation: Only Video Room (without presentation)
+      video_chat_without_presentation: Presentation minimized
       custom_link_placeholder: Enter custom link
       max_participant_placeholder: Enter max_participant
       not_blank: Room name cannot be blank.
