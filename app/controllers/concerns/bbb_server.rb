@@ -80,7 +80,7 @@ module BbbServer
     create_options[:guestPolicy] = "ASK_MODERATOR" if options[:require_moderator_approval]
     create_options[:autoSwapLayout] = true if room.only_video?
 
-    if options[:presentation].present?
+    if options[:presentation].present? && options[:presentation] != ""
       module_options = BigBlueButton::BigBlueButtonModules.new
       module_options.add_presentation(:url, options[:presentation])
     end

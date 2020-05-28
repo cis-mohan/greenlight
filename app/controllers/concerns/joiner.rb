@@ -58,7 +58,7 @@ module Joiner
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
       opts[:max_participants] = room_setting_with_participants
-      opts[:presentation] = room_setting_with_participants
+      opts[:presentation] = get_presentation if @room.owned_by?(current_user)
 
       if current_user
         redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -124,7 +124,11 @@ module Joiner
   end
 
   def get_presentation
-    current_user.present? && current_user.presentation.present? ? "" : ""
+    if current_user.present? && current_user.presentation.present?
+      "#{Rails.configuration.hosts}/#{Rails.configuration.relative_url_root}"+current_user.presentation.url
+    else
+      ""
+    end
   end
 
 

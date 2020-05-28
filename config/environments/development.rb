@@ -79,5 +79,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.hosts = nil
+  config.hosts = ENV['SAFE_HOSTS'].presence || "https://rooms.targetmeet.es"
 end

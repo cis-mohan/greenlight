@@ -342,7 +342,7 @@ es_MX:
       custom_link: Personalizado
       max_number_of_participation: Max número de participantes
       video_chat_without_presentation: Presentacion minimizada
-      custom_link_placeholder: Introduzca Personalizado
+      custom_link_placeholder: enlace personalizado
       max_participant_placeholder: Introduzca participantes
     delete_account:
       confirm: "¿Estas seguro de querer eliminar esta cuenta de usuario?"
