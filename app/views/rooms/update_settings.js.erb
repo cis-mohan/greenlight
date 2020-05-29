@@ -1,14 +1,15 @@
 <% if @room.errors.present? %>
     $(".invalid-feedback").hide();
-	<% @room.errors.full_messages.each do |message| %>
-		<% if message == "Name can't be blank"%>
-			$("#room_name_blank").show();
-		<% elsif message == "Uid can't be blank" %>
-			$("#custom_link_exists").html("Custom link can't be blank")
-			$("#custom_link_exists").show();
-		<% elsif message == "Uid has already been taken" %>
-			$("#custom_link_exists").html("Custom link already exists")
-			$("#custom_link_exists").show();
+	<% if @room.errors.present? %>
+	    $(".invalid-feedback").hide();
+		<% @room.errors.messages.each do |message| %>
+			<% if message[0] == :name %>
+				$("#room_name_blank").html("<%= message[1].join %>");
+				$("#room_name_blank").show();
+			<% elsif message[0] == :uid %>
+				$("#custom_link_exists").html("<%= message[1].join %>");
+				$("#custom_link_exists").show();
+			<% end%>
 		<% end%>
 	<% end%>
 <%else%>
