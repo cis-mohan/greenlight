@@ -306,7 +306,7 @@ es:
       name_placeholder: Introduce un nombre para la sala
       not_blank: El nombre de la sala no puede estar vacío
       title: Crear una sala nueva
-      custom_link: Personalizado
+      custom_link: Enlace personalizado
       max_number_of_participation: Max número de participantes
       video_chat_without_presentation: Presentacion minimizada
       custom_link_placeholder: enlace personalizado
