@@ -45,7 +45,7 @@ class RoomsController < ApplicationController
         @room_not_save = false
         # Save the room and redirect if it fails
         unless @room.save
-          flash[:alert] = I18n.t("room.create_room_error")
+          #flash[:alert] = I18n.t("room.create_room_error")
           #render :js => "window.location.href = '#{room_path(current_user.main_room)}'"
         else
           logger.info "Support: #{current_user.email} has created a new room #{@room.uid}."
@@ -209,7 +209,7 @@ class RoomsController < ApplicationController
       flash[:success] = I18n.t("room.update_settings_success")
     rescue => e
       logger.error "Support: Error in updating room settings: #{e}"
-      flash[:alert] = I18n.t("room.update_settings_error")
+      #flash[:alert] = I18n.t("room.update_settings_error")
     end
   end
 
@@ -290,7 +290,7 @@ class RoomsController < ApplicationController
   private
 
   def create_room_settings_string(options)
-    max_participants = options[:max_participants].present? && options[:max_participants].to_i > 20 ? options[:max_participants] : "20"
+    max_participants = options[:max_participants].present? && options[:max_participants].to_i < 20 ? options[:max_participants] : "20"
     room_settings = {
       "muteOnStart": options[:mute_on_join] == "1",
       "requireModeratorApproval": options[:require_moderator_approval] == "1",
