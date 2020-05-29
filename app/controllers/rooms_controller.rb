@@ -36,28 +36,37 @@ class RoomsController < ApplicationController
 
   # POST /
   def create
-    # Return to root if user is not signed in
-    return redirect_to root_path unless current_user
-
-    # Check if the user has not exceeded the room limit
-    return redirect_to current_user.main_room, flash: { alert: I18n.t("room.room_limit") } if room_limit_exceeded
-
-    # Create room
-    @room = Room.new(name: room_params[:name], access_code: room_params[:access_code], uid: room_params[:uid], only_video: room_params[:only_video])
-    @room.owner = current_user
-    @room.room_settings = create_room_settings_string(room_params)
-
-    # Save the room and redirect if it fails
-    return redirect_to current_user.main_room, flash: { alert: I18n.t("room.create_room_error") } unless @room.save
-
-    logger.info "Support: #{current_user.email} has created a new room #{@room.uid}."
-
-    # Redirect to room is auto join was not turned on
-    return redirect_to @room,
-      flash: { success: I18n.t("room.create_room_success") } unless room_params[:auto_join] == "1"
-
-    # Start the room if auto join was turned on
-    start
+    if current_user.present?
+      if !room_limit_exceeded
+        # Create room
+        @room = Room.new(name: room_params[:name], access_code: room_params[:access_code], uid: room_params[:uid], only_video: room_params[:only_video])
+        @room.owner = current_user
+        @room.room_settings = create_room_settings_string(room_params)
+        @room_not_save = false
+        # Save the room and redirect if it fails
+        unless @room.save
+          flash[:alert] = I18n.t("room.create_room_error")
+          #render :js => "window.location.href = '#{room_path(current_user.main_room)}'"
+        else
+          logger.info "Support: #{current_user.email} has created a new room #{@room.uid}."
+          
+          unless room_params[:auto_join] == "1"
+            # Redirect to room is auto join was not turned on
+             flash[:success] = I18n.t("room.create_room_success")
+             render :js => "window.location.href = '#{room_path(@room)}'"
+          else
+            # Start the room if auto join was turned on
+            start
+          end
+        end
+      else
+        # Check if the user has not exceeded the room limit
+        flash[:alert] = I18n.t("room.room_limit")
+        render :js => "window.location.href = '#{room_path(current_user.main_room)}'"
+      end
+    else
+      render :js => "window.location.href = '#{root_path}'"
+    end  
   end
 
   # GET /:room_uid
@@ -202,7 +211,6 @@ class RoomsController < ApplicationController
       logger.error "Support: Error in updating room settings: #{e}"
       flash[:alert] = I18n.t("room.update_settings_error")
     end
-    redirect_to room_path(@room)
   end
 
   # POST /:room_uid/update_shared_access

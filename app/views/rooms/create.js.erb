@@ -1,0 +1,14 @@
+<% if @room.errors.present? %>
+    $(".invalid-feedback").hide();
+	<% @room.errors.full_messages.each do |message| %>
+		<% if message == "Name can't be blank"%>
+			$("#room_name_blank").show();
+		<% elsif message == "Uid can't be blank" %>
+			$("#custom_link_exists").html("Custom link can't be blank")
+			$("#custom_link_exists").show();
+		<% elsif message == "Uid has already been taken" %>
+			$("#custom_link_exists").html("Custom link already exists")
+			$("#custom_link_exists").show();
+		<% end%>
+	<% end%>
+<% end%>

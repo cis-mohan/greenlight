@@ -23,13 +23,13 @@
             <h3 class="update-only"><%= t("modal.room_settings.title") %></h3>
           </div>
 
-          <%= form_for(:room, url: rooms_path, :html =>{id: "room_form", onSubmit: "return checkform()"}) do |f| %>
+          <%= form_for(:room, url: rooms_path, :html =>{id: "room_form", :remote => true}) do |f| %>
             <div class="input-icon mb-2">
               <span class="input-icon-addon">
                 <i class="fas fa-chalkboard-teacher"></i>
               </span>
               <%= f.text_field :name, id: "create-room-name", class: "form-control text-center", value: "", placeholder: t("modal.create_room.name_placeholder"), autocomplete: :off %>
-              <div class="invalid-feedback text-left"><%= t("modal.create_room.not_blank") %></div>
+              <div class="invalid-feedback text-left" id="room_name_blank"><%= t("modal.create_room.not_blank") %></div>
             </div>
 
             <div class="input-icon mb-2">
@@ -48,7 +48,7 @@
               <span class="custom-switch-description"><%=  t("modal.create_room.custom_link") %></span>
                 <div class="custom-link-input-text">
                   <%= f.text_field :uid, id: "create-room-uid", class: "form-control ", value: "", placeholder: t("modal.create_room.custom_link_placeholder"), autocomplete: :off  %>
-                  <div class="invalid-feedback text-left">Custom link Can't be blank</div>
+                  <div class="invalid-feedback text-left" id="custom_link_exists">Custom link Can't be blank</div>
                 </div>
               </div>
             </label>
